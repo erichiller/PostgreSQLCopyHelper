@@ -27,9 +27,8 @@ namespace PostgreSQLCopyHelper
             return helper.MapNullable(columnName, propertyGetter, NpgsqlDbType.Time);
         }
 
-        public static PostgreSQLCopyHelper<TEntity> MapTimeStamp<TEntity>(this PostgreSQLCopyHelper<TEntity> helper, string columnName, Func<TEntity, DateTime> propertyGetter)
-        {
-            return helper.Map(columnName, propertyGetter, NpgsqlDbType.Timestamp);
+        public static PostgreSQLCopyHelper<TEntity> MapTimeStamp<TEntity>( this PostgreSQLCopyHelper<TEntity> helper, string columnName, Func<TEntity, DateTime> propertyGetter ) {
+            return helper.Map( columnName, propertyGetter, NpgsqlDbType.Timestamp );
         }
 
         public static PostgreSQLCopyHelper<TEntity> MapTimeStamp<TEntity>(this PostgreSQLCopyHelper<TEntity> helper, string columnName, Func<TEntity, DateTime?> propertyGetter)
