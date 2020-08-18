@@ -2,12 +2,27 @@ using System;
 using System.Text.RegularExpressions;
 using NpgsqlTypes;
 
+/**
+ * Currently, this will always convert to snake casing. 
+ * Ideally it would use the <see href="https://github.com/efcore/EFCore.NamingConventions/blob/master/EFCore.NamingConventions/NamingConventions/Internal/SnakeCaseNameRewriter.cs">`EFCore.NamingStrategy methods</see>, but those are internal.
+ * 
+ * [SnakeCase](https://github.com/efcore/EFCore.NamingConventions/blob/master/EFCore.NamingConventions/NamingConventions/Internal/SnakeCaseNameRewriter.cs)
+ *   is added to DbContextOptions via an [extension method](https://github.com/efcore/EFCore.NamingConventions/blob/c442559286a8856f1dbae92274ef94d7037abdae/EFCore.NamingConventions/NamingConventionsExtensions.cs#L10)
+ * 
+ * [DbContext.Database doesn't seem useful](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.infrastructure.databasefacade?view=efcore-3.1)
+ * 
+ * [DbContext.Model doesn't seem like it holds what we need either](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.metadata.imodel?view=efcore-3.1)
+ * 
+ * [DbContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext?view=efcore-3.1#properties)
+ *
+**/
+
 namespace PostgreSQLCopyHelper {
     public static class EnumTypeExtensions {
 
         /**
          * <summary>
-         * This is a pretty lazy method of adding enums, it just converts to string and inserts.staticAlso, it always converts to snake casing. Ideally it would use the <see href="https://github.com/efcore/EFCore.NamingConventions/blob/master/EFCore.NamingConventions/NamingConventions/Internal/SnakeCaseNameRewriter.cs">`EFCore.NamingStrategy` methods</see>, but those are internal.
+         * This is a pretty lazy method of adding enums, it just converts to string 
          * </summary>
          * <param name="helper"></param>
          * <param name="columnName"></param>
