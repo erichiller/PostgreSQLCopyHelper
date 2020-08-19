@@ -15,6 +15,7 @@ using NpgsqlTypes;
  * 
  * [DbContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext?view=efcore-3.1#properties)
  *
+ * [IConventionAnnotation](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.metadata.iconventionannotation?view=efcore-3.1)
 **/
 
 namespace PostgreSQLCopyHelper {
