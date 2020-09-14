@@ -45,7 +45,7 @@ namespace PostgreSQLCopyHelper {
                                                                 value, 
                                                                 "[a-z][A-Z]", Q => $"{Q.Value[ 0 ]}_{Q.Value[ 1 ]}" 
                                                             ).ToLower();
-                                    Console.WriteLine($"propertyGetter: {propertyGetter}={propertyGetter(x)}={newName}");
+                                    // Console.WriteLine($"propertyGetter: {propertyGetter}={propertyGetter(x)}={newName}");
                                     return newName;
                                 }, 
                                 NpgsqlDbType.Text );
